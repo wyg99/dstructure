@@ -643,132 +643,132 @@ void nlToPrintNumberLinkList(NumberListPtr list)
 
 
 // 创建一个链表结点结构体
-typedef struct list
-{
-    /* data */
-    int elem;
-    struct list *next;
-}gNode;
+// typedef struct list
+// {
+//     /* data */
+//     int elem;
+//     struct list *next;
+// }gNode;
 
-// 创建链表头结点
-gNode* gToCreatelist()
-{
-    gNode* listHead = (gNode*)malloc(sizeof(gNode));
-    if(listHead == NULL){
-        printf("头结点空间开辟失败！请重新开辟空间~\n");
-        exit(0);
-    }
-    listHead->next = NULL;
-    return listHead;
-}
+// // 创建链表头结点
+// gNode* gToCreatelist()
+// {
+//     gNode* listHead = (gNode*)malloc(sizeof(gNode));
+//     if(listHead == NULL){
+//         printf("头结点空间开辟失败！请重新开辟空间~\n");
+//         exit(0);
+//     }
+//     listHead->next = NULL;
+//     return listHead;
+// }
 
-// 读取文件数据到单链表中
-gNode* gToGetDataFromFile(const char* filePath gNode* listHead)
-{
-    FILE* fp = NULL;
-    if((fp = fopen(filePath,"r")) == NULL){
-        printf("文件打开失败！请重新打开文件~\n");
-        exit(0);
-    }
-    gNode* list1 = listHead,list2 = NULL; 
-    do{
-        list2 = (gNode*)malloc(sizeof(gNode));
-        if(list2 ==NULL){
-            printf("结点空间开辟失败！请重新开辟空间~\n");
-            exit(0);
-        }
-        int rev = fscanf(fp,"%d,",&list2.elem);
-        if(rev){
-            list2.next = list1->next;
-            list1.next = list2;
-            list1 = list2;
-        }      
-    }while(rev)
-    return listHead;
-}
+// // 读取文件数据到单链表中
+// gNode* gToGetDataFromFile(const char* filePath,gNode* listHead)
+// {
+//     FILE* fp = NULL;
+//     if((fp = fopen(filePath,"r")) == NULL){
+//         printf("文件打开失败！请重新打开文件~\n");
+//         exit(0);
+//     }
+//     gNode* list1 = listHead,*list2 = NULL; 
+//     do{
+//         list2 = (gNode*)malloc(sizeof(gNode));
+//         if(list2 ==NULL){
+//             printf("结点空间开辟失败！请重新开辟空间~\n");
+//             exit(0);
+//         }
+//         int rev = fscanf(fp,"%d,",&list2->elem);
+//         if(rev){
+//             list2.next = list1->next;
+//             list1.next = list2;
+//             list1 = list2;
+//         }      
+//     }while(rev)
+//     return listHead;
+// }
 
-// 获取链表的长度
-gNode gToGetLengthOfLinkList(gNode* listHead)
-{
-    gNode* list = listHead->next;
-    int i = 0;
-    while (list)
-    {
-        i++;
-        list = list->next;
-    }
-    return i;    
-}
+// // 获取链表的长度
+// gNode gToGetLengthOfLinkList(gNode* listHead)
+// {
+//     gNode* list = listHead->next;
+//     int i = 0;
+//     while (list)
+//     {
+//         i++;
+//         list = list->next;
+//     }
+//     return i;    
+// }
 
 
-// 两个链表的合并，按照升序
-gNode* gToSortDoubleLinkList(gNode* listHead1,gNode* listHead2)
-{
-    gNode *list1 = listHead1->next,*list2 = listHead2->next;
-    // 需要一个新的链表
-    gNode* mergeListHead = gToCreatelist();
-    gNode* templist = mergeListHead;
-    while (list1 && list2)
-    {
-        if(list1->elem < list2->elem)
-        {
-            templist->next = list1;
-            list1 = list1->next;
-            templist = templist->next;
+// // 两个链表的合并，按照升序
+// gNode* gToSortDoubleLinkList(gNode* listHead1,gNode* listHead2)
+// {
+//     gNode *list1 = listHead1->next,*list2 = listHead2->next;
+//     // 需要一个新的链表
+//     gNode* mergeListHead = gToCreatelist();
+//     gNode* templist = mergeListHead;
+//     while (list1 && list2)
+//     {
+//         if(list1->elem < list2->elem)
+//         {
+//             templist->next = list1;
+//             list1 = list1->next;
+//             templist = templist->next;
 
-        }else
-        {
-            templist->next = list1;
-            list1 = list1->next;
-            templist = templist->next;
-        }
-        templist->next = NULL;
-        if(list1)
-        {
-            templist->next = list1;
-        }
-        if(list2)
-        {
-            templist->next = list2;
-        }       
-    }    
-    return mergeListHead;
-}
+//         }else
+//         {
+//             templist->next = list1;
+//             list1 = list1->next;
+//             templist = templist->next;
+//         }
+//         templist->next = NULL;
+//         if(list1)
+//         {
+//             templist->next = list1;
+//         }
+//         if(list2)
+//         {
+//             templist->next = list2;
+//         }       
+//     }    
+//     return mergeListHead;
+// }
 
-void gToPrintMergeLinkList(gNode* listHead)
-{
-    gNode* list = listHead->next;
-    if(list->next == NULL)
-    {
-        printf("单链表的内容为空！请重新输入单链表~\n");
-        exit(0);
-    }
-    while (list)
-    {
-        printf("排序后的结果为：\n");
-        printf("%d   ",list->elem);
-        list = list->next;
-    }   
-}
-// 链表的销毁
-gNode* gToDeleteLinkList(gNode* listHead)
-{
-    gNode* list = listHead;
-    while (listHead)
-    {
-        list = listHead;
-        listHead = listHead->next;
-        free(list);
-        list = NULL;
-    }  
-}
+// void gToPrintMergeLinkList(gNode* listHead)
+// {
+//     gNode* list = listHead->next;
+//     if(list->next == NULL)
+//     {
+//         printf("单链表的内容为空！请重新输入单链表~\n");
+//         exit(0);
+//     }
+//     while (list)
+//     {
+//         printf("排序后的结果为：\n");
+//         printf("%d   ",list->elem);
+//         list = list->next;
+//     }   
+// }
+// // 链表的销毁
+// gNode* gToDeleteLinkList(gNode* listHead)
+// {
+//     gNode* list = listHead;
+//     while (listHead)
+//     {
+//         list = listHead;
+//         listHead = listHead->next;
+//         free(list);
+//         list = NULL;
+//     }  
+// }
 
-// 链表的清空
-gNode gToClearThisLinkList(gNode* listHead)
-{
-    gNode *list1 = listHead,*list2 = listHead;
+// // 链表的清空
+// gNode gToClearThisLinkList(gNode* listHead)
+// {
+//     gNode *list1 = listHead,*list2 = listHead;
 
     
 
-}
+// }
 
