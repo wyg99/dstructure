@@ -415,24 +415,26 @@ LinkList gToGeIndexDataOfLinkList(LinkList ListHead,int index)
 
 LinkList gToDeleteIndexDataOfLinkList(LinkList ListHead,int index)
 {
-    LinkList list = ListHead;
-    if(index>gToGetLength(ListHead)||index<0)
-    {
-        printf("待删除的位置错误！超出界限~\n");
-        exit(0);
-    }else{
-        int i = 0;
-        while (i<index-1)
-        {
-            /* code */
-            list = list->next; 
-            i++;          
-        }
-        LinkList temp = list->next;
-        list->next = list->next->next;
-        // 将目标节点进行释空
-        gToFreeLinkListNode(temp);        
-    }
+    //ListHead =NULL;                // 用于验证指针传递不会修改原来你的值的概念
+    // LinkList list = ListHead;
+    // if(index>gToGetLength(ListHead)||index<0)
+    // {
+    //     printf("待删除的位置错误！超出界限~\n");
+    //     exit(0);
+    // }else{
+    //     int i = 0;
+    //     while (i<index-1)
+    //     {
+    //         /* code */
+    //         list = list->next; 
+    //         i++;          
+    //     }
+    //     LinkList temp = list->next;
+    //     list->next = list->next->next;
+    //     // 将目标节点进行释空
+    //     gToFreeLinkListNode(temp);        
+    // }
+
 }
 
 void gToFreeLinkListNode(LinkList Node)

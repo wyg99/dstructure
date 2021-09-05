@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-07-13 17:32:16
- * @LastEditTime: 2021-07-13 21:23:37
+ * @LastEditTime: 2021-08-26 12:17:07
  * @LastEditors: Please set LastEditors
  * @Description: 顺序队列.h FILE
  * @FilePath: \Dstructure\Part2\include\SeqQueue.h
@@ -52,7 +52,7 @@ void popQueue(SeqQueue* queue,Elem* elem);
 void pushQueue(SeqQueue* queue,Elem* elem);
 
 // 创建一个队列元素
-Elem* createQueueNode();
+void createQueueNode(Elem* elem);
 
 // 判断队列是否为空
 BOOL QueueIsEmpty(SeqQueue* queue);
@@ -60,7 +60,8 @@ BOOL QueueIsEmpty(SeqQueue* queue);
 // 判断队列是否已经满了
 BOOL QueueIsFull(SeqQueue* queue);
 
-
+// 获取队列的队头元素
+void GetHeadElemOfQueue(SeqQueue* queue,Elem* elem);
 
 
 

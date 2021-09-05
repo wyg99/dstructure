@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-07-13 17:40:10
- * @LastEditTime: 2021-07-13 21:36:43
+ * @LastEditTime: 2021-08-26 12:17:39
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \Dstructure\Part2\src\SeqQueue.c
@@ -120,15 +120,28 @@ void destroyQueue(SeqQueue* queue)
     if(queue->base)
     {
         free(queue->base);
-        queue->base = NULL;
-        
+        queue->base = NULL;        
     }
     free(queue);
     queue = NULL;
 }
 
+void createQueueNode(Elem* elem)
+{
+    //elem = (Elem*)malloc(sizeof(int));
+    if(elem == NULL) {
+        printf("开辟队列元素空间失败~。请重新开辟空间！\n");
+        exit(0);
+    }
+    printf("\n开始创建队列元素：\n");
+    scanf("%d",&elem->data);
+}
 
 
+void GetHeadElemOfQueue(SeqQueue* queue,Elem* elem)
+{
+    elem->data = queue->base[queue->front].data;
+}
 
 
 
