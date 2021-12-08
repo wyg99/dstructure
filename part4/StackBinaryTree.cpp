@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-08-28 17:41:24
- * @LastEditTime: 2021-08-29 15:41:40
+ * @LastEditTime: 2021-11-30 21:34:49
  * @LastEditors: Please set LastEditors
  * @Description: 运用栈技术实现二叉树的相关的操作
  * @FilePath: \Dstructure\Part4\StackBinaryTree.cpp
@@ -164,11 +164,7 @@ int preOrderTraverse(BTreeNode* &tree)
             
             popStack(stack,elem2);
             
-                gTree = elem2->node.rchild;
-            
-
-            
-            
+            gTree = elem2->node.rchild;
         }
     }
     // 最后销毁stack
@@ -259,12 +255,12 @@ int main()
     gToCreateBinaryTree(tree,fp);
     
     // 前序遍历
-    //preOrderTraverse(tree);
+    preOrderTraverse(tree);
         // 中序遍历
     //inOrderTraverse(tree);
     // 后续遍历
-    postOrderTraverse(tree);
-    destroyBtree(tree);
+    // postOrderTraverse(tree);
+    // destroyBtree(tree);
     fclose(fp);
     return 0;
 }

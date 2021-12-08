@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-08-29 23:45:35
- * @LastEditTime: 2021-08-30 17:27:12
+ * @LastEditTime: 2021-12-08 20:41:47
  * @LastEditors: Please set LastEditors
  * @Description: huffman压缩文件与解压缩文件
  * @FilePath: \Dstructure\part4\HuffTreeCodeZip.cpp
@@ -262,7 +262,7 @@ void HuffTreeCodeZip::CreateHuffmanTree()
             huffmanTree[index].weight = wTable[index1].weight;
             huffmanTree[index].parent = huffmanTree[index].lchild = huffmanTree[index].rchild = 0;  
             huffmanTree[index].codeLen = 0;
-            index++;          
+            index++;
         }
     }
     for (int index2 = numberCh; index2 < 2*numberCh-1;index2++)
@@ -314,8 +314,6 @@ void HuffTreeCodeZip::CreateHUffmanCodeTable()
             huffmanCodeTable[huffmanTree[index1].ch].code[codeIndex] = temp;
             codeIndex++;
         }
-        
-        
     }
     for(int i = 0; i<MAX_CH;i++)
     {
@@ -341,7 +339,7 @@ int main()
     zipApp->outPutHuffmanTree();
     zipApp->CreateHUffmanCodeTable();
     zipApp->WriteFileToZip(filepath,outFile);
-    //delete zipApp;
+
     return 0;
 }
 

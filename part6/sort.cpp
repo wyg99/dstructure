@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-09-05 19:33:14
- * @LastEditTime: 2021-09-05 22:45:17
+ * @LastEditTime: 2021-10-19 16:43:18
  * @LastEditors: Please set LastEditors
  * @Description: 排序的相关操作
  * @FilePath: \Dstructure\part6\sort.cpp
@@ -122,8 +122,6 @@ void SortObjection::QuickSort(int low,int high)
         data[i] = temp;
         QuickSort(low,i-1);
         QuickSort(j+1,high);        
-        
-
     }
     
 }
@@ -151,7 +149,7 @@ void SortObjection::SelectSort()
     
 
 }
-void SortObjection::heapSort()
+void SortObjection::  heapSort()
 {
     for (int i = MAXNUMBER/2-1;i>=0;i--)
     {
@@ -181,7 +179,7 @@ void SortObjection::siftHeap(int low,int high)
         if(temp<data[j])
         {
             data[i] = data[j];
-            i = j;// 修改i和j的位置，使其能够继续向下移动
+            i = j;  // 修改i和j的位置，使其能够继续向下移动
             j = i*2+1;
         }
         else

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-09-04 15:12:52
- * @LastEditTime: 2021-09-04 23:43:38
+ * @LastEditTime: 2021-09-11 11:29:34
  * @LastEditors: Please set LastEditors
  * @Description: 图的相关的操作
  * @FilePath: \Dstructure\part5\Graph.cpp
@@ -247,7 +247,7 @@ int main()
     const char* filePath = "g.txt";
     FILE* fp = fopen(filePath,"r");
     GraphOperation* graph = new GraphOperation(fp);
-    //graph->DepthTravel();
+    graph->DepthTravel();
     
     graph->BfsTravel();
     graph->FreeGraph();

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-08-28 16:41:53
- * @LastEditTime: 2021-08-29 15:09:28
+ * @LastEditTime: 2021-09-17 23:11:21
  * @LastEditors: Please set LastEditors
  * @Description: 二叉树递归实现
  * @FilePath: \Dstructure\Part4\BinaryTreeRecursion.cpp
@@ -63,7 +63,7 @@ int inOrderTraverse(BTreeNode* tree)
     {
         inOrderTraverse(tree->lchild);
         cout<<tree->data<<endl;
-        inOrderTraverse(tree->rchild);
+        inOrderTraverse(tree->rchild);  
         
     }
     return 1;
